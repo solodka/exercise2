@@ -17,6 +17,7 @@ let appData = {
 };
 
 let expensesSum = 0;
+
 for (let i = 0; i < 2; i++){
     let costName = prompt("Введите обязательную статью расходов в месяце", ""),
         costSum = prompt("Во сколько обойдется?","");
@@ -37,10 +38,49 @@ for (let i = 0; i < 2; i++){
     }              
 }
 
+
+/* let i = 0;
+while (i  < 2){
+    i++;
+    let costName = prompt("Введите обязательную статью расходов в месяце", ""),
+        costSum = prompt("Во сколько обойдется?","");
+    if(
+        typeof(costName) == 'string' && 
+        typeof(costName) != null &&
+        typeof(costSum) != 0 && 
+        costName != '' && 
+        costSum != '' && 
+        costName.length < 50
+    )
+    {
+        appData.expenses[costName] = +costSum;
+        expensesSum += +costSum; 
+    }
+} */
+
+/* let i = 0;
+do{
+    let costName = prompt("Введите обязательную статью расходов в месяце", ""),
+        costSum = prompt("Во сколько обойдется?","");
+    if(
+        typeof(costName) == 'string' && 
+        typeof(costName) != null &&
+        typeof(costSum) != 0 && 
+        costName != '' && 
+        costSum != '' && 
+        costName.length < 50
+    )
+    {
+        appData.expenses[costName] = +costSum;
+        expensesSum += +costSum; 
+    }
+    i++;    
+} while (i < 2); */
+
 let budgetForDay = (money - expensesSum)/30;
 
 alert("Ежедневный бюджет: " + budgetForDay.toFixed(2));
-if (budgetForDay < 100){
+if (budgetForDay <= 100){
     console.log('Минимальный уровень достатка'); 
 } else if (budgetForDay > 100 && budgetForDay < 2000) {
     console.log('Средний уровень достатка'); 
